@@ -1,17 +1,5 @@
-<?php
 
-use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 <?php
 
@@ -86,15 +74,11 @@ Route::prefix('admin')->group(function () {
     Route::prefix('products')->group(function () {
         Route::get('/', function () {
             return 'Danh sách sản phẩm';
+=======
+Route::get('/home', function () {
+    // return view('welcome');
+    $user= new User();
+    dd($user);
+    // return view('home');
 
-        });
-        Route::get('add', function () {
-            return 'Thêm sản phẩm'; });
-        Route::get('edit', function () {
-            return 'Sửa sản phẩm';
-        });
-        Route::get('delete', function () {
-            return 'Xoá sản phẩm';
-        });
-    });
-});
+  
