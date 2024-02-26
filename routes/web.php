@@ -1,5 +1,7 @@
 
 
+<?php
+
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -57,14 +59,22 @@ Route::any('/unicode', function (Request $request) {
     return $request->method();
 });
 
-Route::redirect('/unicode', 'show-form', 404);
+// Route::redirect('/unicode', 'show-form', 404);
 
 Route::view('show', 'form');
 
+
 Route::prefix('admin')->group(function () {
-    Route::get('unicode', function () {
-        return 'Phương thức Get của path /unicode';
-    });
+    Route::get('tin-tuc/{id?}-{slug?}.html', function ($id = null, $slug = null) {
+        $content = 'Phương thức Get của path /unicode với id là:';
+        $content .= " id=" . $id;
+        $content .= ', slug=' . $slug;
+        return $content;
+    })->where('id', '\d+')->where('slug', '[^/]+');
+
+
+
+        
     Route::get('show-form', function () {
         return view('form');
     });
