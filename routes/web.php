@@ -1,5 +1,6 @@
 
 
+
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -81,15 +82,11 @@ Route::prefix('admin')->group(function () {
     Route::prefix('products')->group(function () {
         Route::get('/', function () {
             return 'Danh sách sản phẩm';
+=======
+Route::get('/home', function () {
+    // return view('welcome');
+    $user= new User();
+    dd($user);
+    // return view('home');
 
-        });
-        Route::get('add', function () {
-            return 'Thêm sản phẩm'; });
-        Route::get('edit', function () {
-            return 'Sửa sản phẩm';
-        });
-        Route::get('delete', function () {
-            return 'Xoá sản phẩm';
-        });
-    });
-});
+  
